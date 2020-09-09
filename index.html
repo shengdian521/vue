@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div class="box">
+        {{sd}}
+        <!-- 插值表达式，写date中的数据 -->
+        <span>{{sd}}</span>
+        <p>{{name.hh}}</p>
+        <p @click="hh">{{name.ll}}</p>
+        <p v-on:click="hh">{{arr[0]}}</p>
+    </div>
+    <script>
+        // 创建一个vue实例
+        var app=new Vue({
+           el:".box",
+        //   el:vue实例挂载点， 告诉vue去页面找class为box的元素，并且作用范围只能在.box里面，.box后代也可以使用
+        // 支持其他选择器，但一般使用id选择器，因为id选择器是唯一的，不支持单标签因为没办法写插值表达式
+        // 不能挂载到html标签和body标签
+           data:{
+               sd:"盛典",
+               name:{
+                   hh:"苏雨晴",
+                   ll:"刘浩"
+               },
+                //   data： vue实例中用到的数据，定义到data中,写复杂数据类型遵守js的语法
+               arr:["盛典","苏雨晴"]
+           },
+           methods:{
+                   hh:function(){
+                     this.sd+="哈哈哈"
+                    //  获取内部的数据要用this
+                   }
+               }
+         //    methods属性里面写方法
+        //  买色子
+        })
+        // 指令语法v-text="data里面的数据"直接放到标签里面
+        // v-text指令渲染页面时只能解析文本
+        // v-html指令渲染页面时可以解析标签
+        // v-on语法 
+        // v-on:事件(click)="方法"
+        // v-on指令给元素绑定事件
+        // 绑定事件语法2
+        // @clcik="方法"
+    </script>
+
+</body>
+</html>

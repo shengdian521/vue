@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<style>
+    div{
+        margin:200px auto;
+        width: 500px;
+    }
+    p{
+        float: left;
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+        background-color: rgb(212, 224, 224);
+        text-align: center;
+        font-size: 30px;
+    }
+</style>
+<body>
+    <div id="div">
+        <p class="a1" @click="jian">-</p>
+        <p class="a2">{{sd}}</p>
+        <p class="a3"@click="jia">+</p>
+    </div>
+    <script>
+        var app=new Vue({
+            el:"#div",
+            data:{
+               sd:0
+            },
+            methods:{
+                jia:function(){
+                    this.sd++
+                },
+                jian:function(){
+                    if(this.sd==0){
+                        alert("已经最小了哦")
+                    }else{
+                        this.sd--
+                    }
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>
